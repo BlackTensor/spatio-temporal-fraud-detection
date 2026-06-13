@@ -1,0 +1,357 @@
+{
+  "per_time_step": [
+    {
+      "time_step": 1,
+      "n_labeled": 2147,
+      "n_illicit": 17,
+      "illicit_prevalence": 0.0079,
+      "roc_auc": 0.9989
+    },
+    {
+      "time_step": 2,
+      "n_labeled": 1117,
+      "n_illicit": 18,
+      "illicit_prevalence": 0.0161,
+      "roc_auc": 1.0
+    },
+    {
+      "time_step": 3,
+      "n_labeled": 1279,
+      "n_illicit": 11,
+      "illicit_prevalence": 0.0086,
+      "roc_auc": 0.9999
+    },
+    {
+      "time_step": 4,
+      "n_labeled": 1440,
+      "n_illicit": 30,
+      "illicit_prevalence": 0.0208,
+      "roc_auc": 0.9986
+    },
+    {
+      "time_step": 5,
+      "n_labeled": 1882,
+      "n_illicit": 8,
+      "illicit_prevalence": 0.0043,
+      "roc_auc": 0.9977
+    },
+    {
+      "time_step": 6,
+      "n_labeled": 485,
+      "n_illicit": 5,
+      "illicit_prevalence": 0.0103,
+      "roc_auc": 1.0
+    },
+    {
+      "time_step": 7,
+      "n_labeled": 1203,
+      "n_illicit": 102,
+      "illicit_prevalence": 0.0848,
+      "roc_auc": 0.9999
+    },
+    {
+      "time_step": 8,
+      "n_labeled": 1165,
+      "n_illicit": 67,
+      "illicit_prevalence": 0.0575,
+      "roc_auc": 0.9994
+    },
+    {
+      "time_step": 9,
+      "n_labeled": 778,
+      "n_illicit": 248,
+      "illicit_prevalence": 0.3188,
+      "roc_auc": 0.9995
+    },
+    {
+      "time_step": 10,
+      "n_labeled": 972,
+      "n_illicit": 18,
+      "illicit_prevalence": 0.0185,
+      "roc_auc": 0.9985
+    },
+    {
+      "time_step": 11,
+      "n_labeled": 696,
+      "n_illicit": 131,
+      "illicit_prevalence": 0.1882,
+      "roc_auc": 0.9995
+    },
+    {
+      "time_step": 12,
+      "n_labeled": 506,
+      "n_illicit": 16,
+      "illicit_prevalence": 0.0316,
+      "roc_auc": 0.9995
+    },
+    {
+      "time_step": 13,
+      "n_labeled": 809,
+      "n_illicit": 291,
+      "illicit_prevalence": 0.3597,
+      "roc_auc": 0.998
+    },
+    {
+      "time_step": 14,
+      "n_labeled": 417,
+      "n_illicit": 43,
+      "illicit_prevalence": 0.1031,
+      "roc_auc": 0.9993
+    },
+    {
+      "time_step": 15,
+      "n_labeled": 618,
+      "n_illicit": 147,
+      "illicit_prevalence": 0.2379,
+      "roc_auc": 1.0
+    },
+    {
+      "time_step": 16,
+      "n_labeled": 530,
+      "n_illicit": 128,
+      "illicit_prevalence": 0.2415,
+      "roc_auc": 0.9998
+    },
+    {
+      "time_step": 17,
+      "n_labeled": 811,
+      "n_illicit": 99,
+      "illicit_prevalence": 0.1221,
+      "roc_auc": 0.9995
+    },
+    {
+      "time_step": 18,
+      "n_labeled": 389,
+      "n_illicit": 52,
+      "illicit_prevalence": 0.1337,
+      "roc_auc": 0.9995
+    },
+    {
+      "time_step": 19,
+      "n_labeled": 745,
+      "n_illicit": 80,
+      "illicit_prevalence": 0.1074,
+      "roc_auc": 0.9981
+    },
+    {
+      "time_step": 20,
+      "n_labeled": 900,
+      "n_illicit": 260,
+      "illicit_prevalence": 0.2889,
+      "roc_auc": 0.9975
+    },
+    {
+      "time_step": 21,
+      "n_labeled": 641,
+      "n_illicit": 100,
+      "illicit_prevalence": 0.156,
+      "roc_auc": 0.9984
+    },
+    {
+      "time_step": 22,
+      "n_labeled": 1763,
+      "n_illicit": 158,
+      "illicit_prevalence": 0.0896,
+      "roc_auc": 0.9989
+    },
+    {
+      "time_step": 23,
+      "n_labeled": 1187,
+      "n_illicit": 53,
+      "illicit_prevalence": 0.0447,
+      "roc_auc": 0.9953
+    },
+    {
+      "time_step": 24,
+      "n_labeled": 1126,
+      "n_illicit": 137,
+      "illicit_prevalence": 0.1217,
+      "roc_auc": 0.9968
+    },
+    {
+      "time_step": 25,
+      "n_labeled": 594,
+      "n_illicit": 118,
+      "illicit_prevalence": 0.1987,
+      "roc_auc": 0.9987
+    },
+    {
+      "time_step": 26,
+      "n_labeled": 517,
+      "n_illicit": 96,
+      "illicit_prevalence": 0.1857,
+      "roc_auc": 0.9976
+    },
+    {
+      "time_step": 27,
+      "n_labeled": 206,
+      "n_illicit": 24,
+      "illicit_prevalence": 0.1165,
+      "roc_auc": 0.9991
+    },
+    {
+      "time_step": 28,
+      "n_labeled": 284,
+      "n_illicit": 85,
+      "illicit_prevalence": 0.2993,
+      "roc_auc": 1.0
+    },
+    {
+      "time_step": 29,
+      "n_labeled": 1174,
+      "n_illicit": 329,
+      "illicit_prevalence": 0.2802,
+      "roc_auc": 0.9991
+    },
+    {
+      "time_step": 30,
+      "n_labeled": 524,
+      "n_illicit": 83,
+      "illicit_prevalence": 0.1584,
+      "roc_auc": 0.9975
+    },
+    {
+      "time_step": 31,
+      "n_labeled": 710,
+      "n_illicit": 106,
+      "illicit_prevalence": 0.1493,
+      "roc_auc": 0.9981
+    },
+    {
+      "time_step": 32,
+      "n_labeled": 1323,
+      "n_illicit": 342,
+      "illicit_prevalence": 0.2585,
+      "roc_auc": 0.9999
+    },
+    {
+      "time_step": 33,
+      "n_labeled": 441,
+      "n_illicit": 23,
+      "illicit_prevalence": 0.0522,
+      "roc_auc": 0.998
+    },
+    {
+      "time_step": 34,
+      "n_labeled": 515,
+      "n_illicit": 37,
+      "illicit_prevalence": 0.0718,
+      "roc_auc": 0.999
+    },
+    {
+      "time_step": 35,
+      "n_labeled": 1341,
+      "n_illicit": 182,
+      "illicit_prevalence": 0.1357,
+      "roc_auc": 0.9879
+    },
+    {
+      "time_step": 36,
+      "n_labeled": 1708,
+      "n_illicit": 33,
+      "illicit_prevalence": 0.0193,
+      "roc_auc": 0.901
+    },
+    {
+      "time_step": 37,
+      "n_labeled": 498,
+      "n_illicit": 40,
+      "illicit_prevalence": 0.0803,
+      "roc_auc": 0.9645
+    },
+    {
+      "time_step": 38,
+      "n_labeled": 756,
+      "n_illicit": 111,
+      "illicit_prevalence": 0.1468,
+      "roc_auc": 0.9364
+    },
+    {
+      "time_step": 39,
+      "n_labeled": 1183,
+      "n_illicit": 81,
+      "illicit_prevalence": 0.0685,
+      "roc_auc": 0.9705
+    },
+    {
+      "time_step": 40,
+      "n_labeled": 1211,
+      "n_illicit": 112,
+      "illicit_prevalence": 0.0925,
+      "roc_auc": 0.8993
+    },
+    {
+      "time_step": 41,
+      "n_labeled": 1132,
+      "n_illicit": 116,
+      "illicit_prevalence": 0.1025,
+      "roc_auc": 0.8586
+    },
+    {
+      "time_step": 42,
+      "n_labeled": 2154,
+      "n_illicit": 239,
+      "illicit_prevalence": 0.111,
+      "roc_auc": 0.945
+    },
+    {
+      "time_step": 43,
+      "n_labeled": 1370,
+      "n_illicit": 24,
+      "illicit_prevalence": 0.0175,
+      "roc_auc": 0.741
+    },
+    {
+      "time_step": 44,
+      "n_labeled": 1591,
+      "n_illicit": 24,
+      "illicit_prevalence": 0.0151,
+      "roc_auc": 0.6013
+    },
+    {
+      "time_step": 45,
+      "n_labeled": 1221,
+      "n_illicit": 5,
+      "illicit_prevalence": 0.0041,
+      "roc_auc": 0.7433
+    },
+    {
+      "time_step": 46,
+      "n_labeled": 712,
+      "n_illicit": 2,
+      "illicit_prevalence": 0.0028,
+      "roc_auc": 0.9958
+    },
+    {
+      "time_step": 47,
+      "n_labeled": 846,
+      "n_illicit": 22,
+      "illicit_prevalence": 0.026,
+      "roc_auc": 0.8417
+    },
+    {
+      "time_step": 48,
+      "n_labeled": 471,
+      "n_illicit": 36,
+      "illicit_prevalence": 0.0764,
+      "roc_auc": 0.9331
+    },
+    {
+      "time_step": 49,
+      "n_labeled": 476,
+      "n_illicit": 56,
+      "illicit_prevalence": 0.1176,
+      "roc_auc": 0.7884
+    }
+  ],
+  "period_mean_auc": {
+    "train": 0.9988,
+    "val": 0.9329,
+    "test": 0.8064
+  },
+  "period_mean_prevalence": {
+    "train": 0.1337,
+    "val": 0.0946,
+    "test": 0.0371
+  }
+}

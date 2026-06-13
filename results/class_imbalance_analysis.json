@@ -1,0 +1,83 @@
+{
+  "train_licit": 26432,
+  "train_illicit": 3462,
+  "inverse_freq": 7.635,
+  "results": [
+    {
+      "pos_weight": 1.0,
+      "best_epoch": 117,
+      "val_threshold": 0.25,
+      "val": {
+        "tpr": 0.6882,
+        "precision": 0.8558,
+        "f1": 0.7629,
+        "auc": 0.9438
+      },
+      "test": {
+        "tpr": 0.0059,
+        "precision": 0.0556,
+        "f1": 0.0107,
+        "auc": 0.743
+      },
+      "label": "None (1.0)",
+      "train_s": 219.3
+    },
+    {
+      "pos_weight": 2.763,
+      "best_epoch": 116,
+      "val_threshold": 0.32,
+      "val": {
+        "tpr": 0.7155,
+        "precision": 0.8732,
+        "f1": 0.7865,
+        "auc": 0.9441
+      },
+      "test": {
+        "tpr": 0.0118,
+        "precision": 0.0541,
+        "f1": 0.0194,
+        "auc": 0.7813
+      },
+      "label": "Sqrt inverse-freq",
+      "train_s": 225.1
+    },
+    {
+      "pos_weight": 7.635,
+      "best_epoch": 132,
+      "val_threshold": 0.6,
+      "val": {
+        "tpr": 0.7057,
+        "precision": 0.7856,
+        "f1": 0.7435,
+        "auc": 0.9443
+      },
+      "test": {
+        "tpr": 0.0118,
+        "precision": 0.037,
+        "f1": 0.0179,
+        "auc": 0.7504
+      },
+      "label": "Inverse-freq (default)",
+      "train_s": 226.9
+    },
+    {
+      "pos_weight": 15.27,
+      "best_epoch": 95,
+      "val_threshold": 0.95,
+      "val": {
+        "tpr": 0.6608,
+        "precision": 0.7916,
+        "f1": 0.7203,
+        "auc": 0.9422
+      },
+      "test": {
+        "tpr": 0.0059,
+        "precision": 0.0244,
+        "f1": 0.0095,
+        "auc": 0.7608
+      },
+      "label": "2\u00d7 inverse-freq",
+      "train_s": 181.8
+    }
+  ]
+}
