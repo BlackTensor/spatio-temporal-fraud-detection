@@ -1,0 +1,180 @@
+# Phase 9.3: Neighborhood Analysis — Top-20 Anomalies (GraphSAGE)
+
+Anomaly scores from Phase 7 (GraphSAGE, test AUC=0.777).  For each top anomaly we report its 1-hop predecessors (`sends`: u→v, money flows into v) and successors (`receives`: v→w), neighbor risk scores, neighbor labels, and the 2-hop receptive-field size that drives the GNN prediction.
+
+Note: Elliptic edges are strictly intra-time-step, so every neighbor shares the anomaly's time step.
+
+==============================================================================
+
+
+## Anomaly #1: node 195359  (time step 47, label=unknown, risk=1.0000)
+  2-hop receptive field : 3 nodes
+  In-degree (predecessors / 'sends')  : 1
+  Out-degree (successors / 'receives'): 0
+  Predecessors (sends → v): n=1  risk[min/mean/max]=0.026/0.026/0.026  labels[unknown=1]
+     highest-risk: node 195358(risk=0.03,unknown)
+  Successors  (v → receives): none
+
+## Anomaly #2: node 186736  (time step 45, label=unknown, risk=1.0000)
+  2-hop receptive field : 2 nodes
+  In-degree (predecessors / 'sends')  : 1
+  Out-degree (successors / 'receives'): 0
+  Predecessors (sends → v): n=1  risk[min/mean/max]=0.000/0.000/0.000  labels[licit=1]
+     highest-risk: node 186735(risk=0.00,licit)
+  Successors  (v → receives): none
+
+## Anomaly #3: node 176879  (time step 43, label=unknown, risk=1.0000)
+  2-hop receptive field : 2 nodes
+  In-degree (predecessors / 'sends')  : 1
+  Out-degree (successors / 'receives'): 0
+  Predecessors (sends → v): n=1  risk[min/mean/max]=0.000/0.000/0.000  labels[licit=1]
+     highest-risk: node 174701(risk=0.00,licit)
+  Successors  (v → receives): none
+
+## Anomaly #4: node 191858  (time step 46, label=unknown, risk=1.0000)
+  2-hop receptive field : 3 nodes
+  In-degree (predecessors / 'sends')  : 1
+  Out-degree (successors / 'receives'): 0
+  Predecessors (sends → v): n=1  risk[min/mean/max]=0.000/0.000/0.000  labels[licit=1]
+     highest-risk: node 191857(risk=0.00,licit)
+  Successors  (v → receives): none
+
+## Anomaly #5: node 189707  (time step 45, label=unknown, risk=1.0000)
+  2-hop receptive field : 2 nodes
+  In-degree (predecessors / 'sends')  : 1
+  Out-degree (successors / 'receives'): 0
+  Predecessors (sends → v): n=1  risk[min/mean/max]=0.010/0.010/0.010  labels[unknown=1]
+     highest-risk: node 188527(risk=0.01,unknown)
+  Successors  (v → receives): none
+
+## Anomaly #6: node 174354  (time step 43, label=unknown, risk=1.0000)
+  2-hop receptive field : 3 nodes
+  In-degree (predecessors / 'sends')  : 1
+  Out-degree (successors / 'receives'): 0
+  Predecessors (sends → v): n=1  risk[min/mean/max]=0.001/0.001/0.001  labels[unknown=1]
+     highest-risk: node 174353(risk=0.00,unknown)
+  Successors  (v → receives): none
+
+## Anomaly #7: node 178839  (time step 43, label=unknown, risk=1.0000)
+  2-hop receptive field : 2 nodes
+  In-degree (predecessors / 'sends')  : 1
+  Out-degree (successors / 'receives'): 0
+  Predecessors (sends → v): n=1  risk[min/mean/max]=0.002/0.002/0.002  labels[licit=1]
+     highest-risk: node 177855(risk=0.00,licit)
+  Successors  (v → receives): none
+
+## Anomaly #8: node 191711  (time step 46, label=unknown, risk=1.0000)
+  2-hop receptive field : 2 nodes
+  In-degree (predecessors / 'sends')  : 1
+  Out-degree (successors / 'receives'): 0
+  Predecessors (sends → v): n=1  risk[min/mean/max]=0.000/0.000/0.000  labels[licit=1]
+     highest-risk: node 191531(risk=0.00,licit)
+  Successors  (v → receives): none
+
+## Anomaly #9: node 198073  (time step 47, label=unknown, risk=1.0000)
+  2-hop receptive field : 3 nodes
+  In-degree (predecessors / 'sends')  : 1
+  Out-degree (successors / 'receives'): 0
+  Predecessors (sends → v): n=1  risk[min/mean/max]=0.000/0.000/0.000  labels[unknown=1]
+     highest-risk: node 195194(risk=0.00,unknown)
+  Successors  (v → receives): none
+
+## Anomaly #10: node 192130  (time step 46, label=unknown, risk=1.0000)
+  2-hop receptive field : 2 nodes
+  In-degree (predecessors / 'sends')  : 1
+  Out-degree (successors / 'receives'): 0
+  Predecessors (sends → v): n=1  risk[min/mean/max]=0.000/0.000/0.000  labels[licit=1]
+     highest-risk: node 190065(risk=0.00,licit)
+  Successors  (v → receives): none
+
+## Anomaly #11: node 176940  (time step 43, label=unknown, risk=1.0000)
+  2-hop receptive field : 4 nodes
+  In-degree (predecessors / 'sends')  : 1
+  Out-degree (successors / 'receives'): 0
+  Predecessors (sends → v): n=1  risk[min/mean/max]=0.356/0.356/0.356  labels[unknown=1]
+     highest-risk: node 176939(risk=0.36,unknown)
+  Successors  (v → receives): none
+
+## Anomaly #12: node 186849  (time step 45, label=unknown, risk=1.0000)
+  2-hop receptive field : 3 nodes
+  In-degree (predecessors / 'sends')  : 1
+  Out-degree (successors / 'receives'): 0
+  Predecessors (sends → v): n=1  risk[min/mean/max]=0.007/0.007/0.007  labels[unknown=1]
+     highest-risk: node 186373(risk=0.01,unknown)
+  Successors  (v → receives): none
+
+## Anomaly #13: node 179006  (time step 43, label=unknown, risk=1.0000)
+  2-hop receptive field : 3 nodes
+  In-degree (predecessors / 'sends')  : 1
+  Out-degree (successors / 'receives'): 0
+  Predecessors (sends → v): n=1  risk[min/mean/max]=0.000/0.000/0.000  labels[licit=1]
+     highest-risk: node 174196(risk=0.00,licit)
+  Successors  (v → receives): none
+
+## Anomaly #14: node 196636  (time step 47, label=unknown, risk=1.0000)
+  2-hop receptive field : 3 nodes
+  In-degree (predecessors / 'sends')  : 1
+  Out-degree (successors / 'receives'): 0
+  Predecessors (sends → v): n=1  risk[min/mean/max]=0.775/0.775/0.775  labels[unknown=1]
+     highest-risk: node 194543(risk=0.78,unknown)
+  Successors  (v → receives): none
+
+## Anomaly #15: node 178834  (time step 43, label=unknown, risk=1.0000)
+  2-hop receptive field : 4 nodes
+  In-degree (predecessors / 'sends')  : 1
+  Out-degree (successors / 'receives'): 0
+  Predecessors (sends → v): n=1  risk[min/mean/max]=0.000/0.000/0.000  labels[licit=1]
+     highest-risk: node 175212(risk=0.00,licit)
+  Successors  (v → receives): none
+
+## Anomaly #16: node 178889  (time step 43, label=unknown, risk=1.0000)
+  2-hop receptive field : 4 nodes
+  In-degree (predecessors / 'sends')  : 1
+  Out-degree (successors / 'receives'): 0
+  Predecessors (sends → v): n=1  risk[min/mean/max]=0.000/0.000/0.000  labels[licit=1]
+     highest-risk: node 177983(risk=0.00,licit)
+  Successors  (v → receives): none
+
+## Anomaly #17: node 189998  (time step 46, label=unknown, risk=1.0000)
+  2-hop receptive field : 3 nodes
+  In-degree (predecessors / 'sends')  : 1
+  Out-degree (successors / 'receives'): 0
+  Predecessors (sends → v): n=1  risk[min/mean/max]=0.013/0.013/0.013  labels[unknown=1]
+     highest-risk: node 189997(risk=0.01,unknown)
+  Successors  (v → receives): none
+
+## Anomaly #18: node 179073  (time step 43, label=unknown, risk=1.0000)
+  2-hop receptive field : 3 nodes
+  In-degree (predecessors / 'sends')  : 1
+  Out-degree (successors / 'receives'): 0
+  Predecessors (sends → v): n=1  risk[min/mean/max]=0.168/0.168/0.168  labels[unknown=1]
+     highest-risk: node 178367(risk=0.17,unknown)
+  Successors  (v → receives): none
+
+## Anomaly #19: node 179047  (time step 43, label=unknown, risk=1.0000)
+  2-hop receptive field : 4 nodes
+  In-degree (predecessors / 'sends')  : 1
+  Out-degree (successors / 'receives'): 0
+  Predecessors (sends → v): n=1  risk[min/mean/max]=0.000/0.000/0.000  labels[licit=1]
+     highest-risk: node 178115(risk=0.00,licit)
+  Successors  (v → receives): none
+
+## Anomaly #20: node 195095  (time step 47, label=unknown, risk=1.0000)
+  2-hop receptive field : 2 nodes
+  In-degree (predecessors / 'sends')  : 1
+  Out-degree (successors / 'receives'): 0
+  Predecessors (sends → v): n=1  risk[min/mean/max]=0.000/0.000/0.000  labels[unknown=1]
+     highest-risk: node 195094(risk=0.00,unknown)
+  Successors  (v → receives): none
+
+==============================================================================
+
+## Aggregate observations
+
+- Mean total degree of top anomalies     : 1.0 (graph mean 2.3) — these are low-degree leaf nodes
+- Mean 2-hop receptive field             : 2.9 nodes
+- Mean predecessor risk across anomalies : 0.068
+- Mean neighbor risk (all directions)    : 0.068
+- Anomalies with ≥1 labeled-illicit neighbor: 0/20
+
+**Interpretation**: The global top-20 anomalies are near-isolated leaf transactions (in-degree ≈1, out-degree 0, 2-3 node receptive fields) whose sole neighbors carry *low* risk (mean 0.068) and are not labeled-illicit. Their score of ~1.0 therefore comes from each node's **own feature vector**, not from neighbor propagation. This is independently confirmed by Phase 9.1 (SHAP attributes the score to the node's own features) and Phase 9.2 (GAT places ~0.70 attention on the self-loop vs ~0.26 on neighbors). Because 99/100 of these nodes are unknown-label (Phase 7), they are operationally relevant alerts: feature-anomalous transactions that the Elliptic 1% labelling sample never covered, rather than nodes flagged by their position in a suspicious transaction chain.
