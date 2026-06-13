@@ -1,0 +1,435 @@
+{
+  "num_nodes": 203769,
+  "num_edges": 234355,
+  "num_features": 169,
+  "num_time_steps": 49,
+  "degree_stats": {
+    "in_degree_min": 0,
+    "in_degree_max": 284,
+    "in_degree_mean": 1.1501,
+    "in_degree_median": 1.0,
+    "in_degree_p75": 1.0,
+    "in_degree_p95": 2.0,
+    "in_degree_p99": 9.0,
+    "out_degree_min": 0,
+    "out_degree_max": 472,
+    "out_degree_mean": 1.1501,
+    "out_degree_median": 1.0,
+    "out_degree_p75": 1.0,
+    "out_degree_p95": 2.0,
+    "out_degree_p99": 5.0,
+    "total_degree_min": 1,
+    "total_degree_max": 473,
+    "total_degree_mean": 2.3002,
+    "total_degree_median": 2.0,
+    "total_degree_p75": 2.0,
+    "total_degree_p95": 4.0,
+    "total_degree_p99": 13.0,
+    "isolated_nodes": 0
+  },
+  "connected_components": {
+    "num_weakly_connected_components": 49,
+    "largest_wcc_size": 7880,
+    "largest_wcc_fraction": 0.0387,
+    "singleton_components": 0
+  },
+  "label_distribution": {
+    "illicit": 4545,
+    "licit": 42019,
+    "unknown": 157205
+  },
+  "per_time_step": [
+    {
+      "time_step": 1,
+      "n_nodes": 7880,
+      "n_edges": 9164,
+      "n_illicit": 17,
+      "n_licit": 2130,
+      "n_unknown": 5733
+    },
+    {
+      "time_step": 2,
+      "n_nodes": 4544,
+      "n_edges": 5241,
+      "n_illicit": 18,
+      "n_licit": 1099,
+      "n_unknown": 3427
+    },
+    {
+      "time_step": 3,
+      "n_nodes": 6621,
+      "n_edges": 8316,
+      "n_illicit": 11,
+      "n_licit": 1268,
+      "n_unknown": 5342
+    },
+    {
+      "time_step": 4,
+      "n_nodes": 5693,
+      "n_edges": 8180,
+      "n_illicit": 30,
+      "n_licit": 1410,
+      "n_unknown": 4253
+    },
+    {
+      "time_step": 5,
+      "n_nodes": 6803,
+      "n_edges": 8623,
+      "n_illicit": 8,
+      "n_licit": 1874,
+      "n_unknown": 4921
+    },
+    {
+      "time_step": 6,
+      "n_nodes": 4328,
+      "n_edges": 5242,
+      "n_illicit": 5,
+      "n_licit": 480,
+      "n_unknown": 3843
+    },
+    {
+      "time_step": 7,
+      "n_nodes": 6048,
+      "n_edges": 7253,
+      "n_illicit": 102,
+      "n_licit": 1101,
+      "n_unknown": 4845
+    },
+    {
+      "time_step": 8,
+      "n_nodes": 4457,
+      "n_edges": 5186,
+      "n_illicit": 67,
+      "n_licit": 1098,
+      "n_unknown": 3292
+    },
+    {
+      "time_step": 9,
+      "n_nodes": 4996,
+      "n_edges": 5939,
+      "n_illicit": 248,
+      "n_licit": 530,
+      "n_unknown": 4218
+    },
+    {
+      "time_step": 10,
+      "n_nodes": 6727,
+      "n_edges": 8588,
+      "n_illicit": 18,
+      "n_licit": 954,
+      "n_unknown": 5755
+    },
+    {
+      "time_step": 11,
+      "n_nodes": 4296,
+      "n_edges": 4656,
+      "n_illicit": 131,
+      "n_licit": 565,
+      "n_unknown": 3600
+    },
+    {
+      "time_step": 12,
+      "n_nodes": 2047,
+      "n_edges": 2213,
+      "n_illicit": 16,
+      "n_licit": 490,
+      "n_unknown": 1541
+    },
+    {
+      "time_step": 13,
+      "n_nodes": 4528,
+      "n_edges": 4827,
+      "n_illicit": 291,
+      "n_licit": 518,
+      "n_unknown": 3719
+    },
+    {
+      "time_step": 14,
+      "n_nodes": 2022,
+      "n_edges": 2078,
+      "n_illicit": 43,
+      "n_licit": 374,
+      "n_unknown": 1605
+    },
+    {
+      "time_step": 15,
+      "n_nodes": 3639,
+      "n_edges": 3823,
+      "n_illicit": 147,
+      "n_licit": 471,
+      "n_unknown": 3021
+    },
+    {
+      "time_step": 16,
+      "n_nodes": 2975,
+      "n_edges": 3120,
+      "n_illicit": 128,
+      "n_licit": 402,
+      "n_unknown": 2445
+    },
+    {
+      "time_step": 17,
+      "n_nodes": 3385,
+      "n_edges": 3650,
+      "n_illicit": 99,
+      "n_licit": 712,
+      "n_unknown": 2574
+    },
+    {
+      "time_step": 18,
+      "n_nodes": 1976,
+      "n_edges": 2115,
+      "n_illicit": 52,
+      "n_licit": 337,
+      "n_unknown": 1587
+    },
+    {
+      "time_step": 19,
+      "n_nodes": 3506,
+      "n_edges": 3838,
+      "n_illicit": 80,
+      "n_licit": 665,
+      "n_unknown": 2761
+    },
+    {
+      "time_step": 20,
+      "n_nodes": 4291,
+      "n_edges": 4755,
+      "n_illicit": 260,
+      "n_licit": 640,
+      "n_unknown": 3391
+    },
+    {
+      "time_step": 21,
+      "n_nodes": 3537,
+      "n_edges": 3959,
+      "n_illicit": 100,
+      "n_licit": 541,
+      "n_unknown": 2896
+    },
+    {
+      "time_step": 22,
+      "n_nodes": 5894,
+      "n_edges": 7014,
+      "n_illicit": 158,
+      "n_licit": 1605,
+      "n_unknown": 4131
+    },
+    {
+      "time_step": 23,
+      "n_nodes": 4165,
+      "n_edges": 4584,
+      "n_illicit": 53,
+      "n_licit": 1134,
+      "n_unknown": 2978
+    },
+    {
+      "time_step": 24,
+      "n_nodes": 4592,
+      "n_edges": 5124,
+      "n_illicit": 137,
+      "n_licit": 989,
+      "n_unknown": 3466
+    },
+    {
+      "time_step": 25,
+      "n_nodes": 2314,
+      "n_edges": 2619,
+      "n_illicit": 118,
+      "n_licit": 476,
+      "n_unknown": 1720
+    },
+    {
+      "time_step": 26,
+      "n_nodes": 2523,
+      "n_edges": 2690,
+      "n_illicit": 96,
+      "n_licit": 421,
+      "n_unknown": 2006
+    },
+    {
+      "time_step": 27,
+      "n_nodes": 1089,
+      "n_edges": 1168,
+      "n_illicit": 24,
+      "n_licit": 182,
+      "n_unknown": 883
+    },
+    {
+      "time_step": 28,
+      "n_nodes": 1653,
+      "n_edges": 1717,
+      "n_illicit": 85,
+      "n_licit": 199,
+      "n_unknown": 1369
+    },
+    {
+      "time_step": 29,
+      "n_nodes": 4275,
+      "n_edges": 4541,
+      "n_illicit": 329,
+      "n_licit": 845,
+      "n_unknown": 3101
+    },
+    {
+      "time_step": 30,
+      "n_nodes": 2483,
+      "n_edges": 2561,
+      "n_illicit": 83,
+      "n_licit": 441,
+      "n_unknown": 1959
+    },
+    {
+      "time_step": 31,
+      "n_nodes": 2816,
+      "n_edges": 3049,
+      "n_illicit": 106,
+      "n_licit": 604,
+      "n_unknown": 2106
+    },
+    {
+      "time_step": 32,
+      "n_nodes": 4525,
+      "n_edges": 4952,
+      "n_illicit": 342,
+      "n_licit": 981,
+      "n_unknown": 3202
+    },
+    {
+      "time_step": 33,
+      "n_nodes": 3151,
+      "n_edges": 3366,
+      "n_illicit": 23,
+      "n_licit": 418,
+      "n_unknown": 2710
+    },
+    {
+      "time_step": 34,
+      "n_nodes": 2486,
+      "n_edges": 2692,
+      "n_illicit": 37,
+      "n_licit": 478,
+      "n_unknown": 1971
+    },
+    {
+      "time_step": 35,
+      "n_nodes": 5507,
+      "n_edges": 6351,
+      "n_illicit": 182,
+      "n_licit": 1159,
+      "n_unknown": 4166
+    },
+    {
+      "time_step": 36,
+      "n_nodes": 6393,
+      "n_edges": 7813,
+      "n_illicit": 33,
+      "n_licit": 1675,
+      "n_unknown": 4685
+    },
+    {
+      "time_step": 37,
+      "n_nodes": 3306,
+      "n_edges": 3849,
+      "n_illicit": 40,
+      "n_licit": 458,
+      "n_unknown": 2808
+    },
+    {
+      "time_step": 38,
+      "n_nodes": 2891,
+      "n_edges": 3094,
+      "n_illicit": 111,
+      "n_licit": 645,
+      "n_unknown": 2135
+    },
+    {
+      "time_step": 39,
+      "n_nodes": 2760,
+      "n_edges": 2914,
+      "n_illicit": 81,
+      "n_licit": 1102,
+      "n_unknown": 1577
+    },
+    {
+      "time_step": 40,
+      "n_nodes": 4481,
+      "n_edges": 5246,
+      "n_illicit": 112,
+      "n_licit": 1099,
+      "n_unknown": 3270
+    },
+    {
+      "time_step": 41,
+      "n_nodes": 5342,
+      "n_edges": 6093,
+      "n_illicit": 116,
+      "n_licit": 1016,
+      "n_unknown": 4210
+    },
+    {
+      "time_step": 42,
+      "n_nodes": 7140,
+      "n_edges": 8493,
+      "n_illicit": 239,
+      "n_licit": 1915,
+      "n_unknown": 4986
+    },
+    {
+      "time_step": 43,
+      "n_nodes": 5063,
+      "n_edges": 5950,
+      "n_illicit": 24,
+      "n_licit": 1346,
+      "n_unknown": 3693
+    },
+    {
+      "time_step": 44,
+      "n_nodes": 4975,
+      "n_edges": 5551,
+      "n_illicit": 24,
+      "n_licit": 1567,
+      "n_unknown": 3384
+    },
+    {
+      "time_step": 45,
+      "n_nodes": 5598,
+      "n_edges": 6673,
+      "n_illicit": 5,
+      "n_licit": 1216,
+      "n_unknown": 4377
+    },
+    {
+      "time_step": 46,
+      "n_nodes": 3519,
+      "n_edges": 3866,
+      "n_illicit": 2,
+      "n_licit": 710,
+      "n_unknown": 2807
+    },
+    {
+      "time_step": 47,
+      "n_nodes": 5121,
+      "n_edges": 5748,
+      "n_illicit": 22,
+      "n_licit": 824,
+      "n_unknown": 4275
+    },
+    {
+      "time_step": 48,
+      "n_nodes": 2954,
+      "n_edges": 3284,
+      "n_illicit": 36,
+      "n_licit": 435,
+      "n_unknown": 2483
+    },
+    {
+      "time_step": 49,
+      "n_nodes": 2454,
+      "n_edges": 2587,
+      "n_illicit": 56,
+      "n_licit": 420,
+      "n_unknown": 1978
+    }
+  ]
+}
