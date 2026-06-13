@@ -250,13 +250,25 @@ def train_model(
     torch.save(model.state_dict(), model_path)
     logger.info("  Saved %s", model_path.name)
 
-    # ── save training JSON (without raw prob arrays — save those separately) ──
+    # ── save training JSON (without raw prob arrays — keep file small) ──
     training_log = {k: v for k, v in result.items()
                     if k not in ("val_probs", "val_labels", "test_probs", "test_labels")}
     log_path = RESULTS_DIR / f"{model_name}_training.json"
     with open(log_path, "w") as f:
         json.dump(training_log, f, indent=2)
     logger.info("  Saved %s", log_path.name)
+
+    # ── save prob arrays separately (used by temporal_ablation.py for ROC plots) ──
+    probs_log = {
+        "val_probs":   result["val_probs"],
+        "val_labels":  result["val_labels"],
+        "test_probs":  result["test_probs"],
+        "test_labels": result["test_labels"],
+    }
+    probs_path = RESULTS_DIR / f"{model_name}_probs.json"
+    with open(probs_path, "w") as f:
+        json.dump(probs_log, f)
+    logger.info("  Saved %s", probs_path.name)
 
     logger.info(
         "  [%s] DONE  val_f1=%.4f  val_auc=%.4f  test_f1=%.4f  test_auc=%.4f  t=%.0fs",
