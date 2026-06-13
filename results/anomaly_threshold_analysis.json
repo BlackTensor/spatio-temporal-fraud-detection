@@ -1,0 +1,18 @@
+{
+  "youden_j": {
+    "threshold": 0.1315,
+    "f1": 0.0206,
+    "precision": 0.0246,
+    "recall": 0.0178,
+    "roc_auc": 0.7765,
+    "report": "              precision    recall  f1-score   support\n\n       licit       0.97      0.98      0.98      6518\n     illicit       0.02      0.02      0.02       169\n\n    accuracy                           0.96      6687\n   macro avg       0.50      0.50      0.50      6687\nweighted avg       0.95      0.96      0.95      6687\n"
+  },
+  "f1_optimal": {
+    "threshold": 0.54,
+    "f1": 0.0197,
+    "precision": 0.0588,
+    "recall": 0.0118,
+    "roc_auc": 0.7765,
+    "report": "              precision    recall  f1-score   support\n\n       licit       0.97      1.00      0.98      6518\n     illicit       0.06      0.01      0.02       169\n\n    accuracy                           0.97      6687\n   macro avg       0.52      0.50      0.50      6687\nweighted avg       0.95      0.97      0.96      6687\n"
+  }
+}
