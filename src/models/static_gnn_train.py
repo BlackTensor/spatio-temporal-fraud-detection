@@ -145,10 +145,10 @@ def train_model(
     val_mask   = data.val_labeled_mask
     test_mask  = data.test_labeled_mask
 
-    best_val_f1 = -1.0
-    best_epoch  = 0
-    best_state  = None
-    no_improve  = 0
+    best_val_auc = -1.0
+    best_epoch   = 0
+    best_state   = None
+    no_improve   = 0
     history: list[dict] = []
 
     t_train_start = time.perf_counter()
@@ -177,11 +177,12 @@ def train_model(
             "val_auc": round(val_auc, 6),
         })
 
-        if val_f1 > best_val_f1:
-            best_val_f1 = val_f1
-            best_epoch  = epoch
-            best_state  = copy.deepcopy(model.state_dict())
-            no_improve  = 0
+        # Early stopping on val_auc (more stable than val_f1 at fixed threshold under imbalance)
+        if val_auc > best_val_auc:
+            best_val_auc = val_auc
+            best_epoch   = epoch
+            best_state   = copy.deepcopy(model.state_dict())
+            no_improve   = 0
         else:
             no_improve += 1
 
@@ -309,7 +310,7 @@ def build_comparison(results: list[dict]) -> None:
     # ── CSV ──
     import csv
     csv_path = RESULTS_DIR / "model_comparison.csv"
-    with open(csv_path, "w", newline="") as f:
+    with open(csv_path, "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=rows[0].keys())
         w.writeheader()
         w.writerows(rows)
@@ -335,7 +336,7 @@ def build_comparison(results: list[dict]) -> None:
 
     md = f"# Phase 4: Static GNN Model Comparison\n\n{header}\n{sep}\n{body}\n{note}\n"
     md_path = RESULTS_DIR / "model_comparison.md"
-    with open(md_path, "w") as f:
+    with open(md_path, "w", encoding="utf-8") as f:
         f.write(md)
     logger.info("Saved model_comparison.md")
 
