@@ -1,0 +1,54 @@
+# Core dependencies for Spatio-Temporal Heterogeneous GNN Anomaly Detection
+# All open-source / free. Pinned for reproducibility.
+#
+# PLATFORM NOTE: developed on Windows-on-ARM (Snapdragon) + Python 3.14, where
+# only the *latest* releases ship cp314 / win_arm64 wheels — older versions have
+# no wheel and would require a C/C++ compiler to build from source. The pins
+# below are the latest wheel-backed versions; they also resolve on Colab/Kaggle
+# Linux runtimes. Install with prebuilt wheels only:
+#
+#     pip install --only-binary=:all: -r requirements.txt
+#
+# COMPUTE: heavy GNN training uses free GPU on Colab/Kaggle (no local NVIDIA
+# GPU here). See notebooks/colab_setup.ipynb, which installs PyG + the PyG CUDA
+# extensions against the runtime's torch build.
+
+# ---- Deep learning / graphs ----
+torch==2.12.0
+torch-geometric==2.8.0
+
+# ---- Classical ML / data ----
+numpy==2.4.6
+scipy==1.17.1
+pandas==3.0.3
+scikit-learn==1.9.0
+xgboost==3.2.0
+
+# ---- Graph utilities / viz ----
+networkx==3.6.1
+matplotlib==3.11.0
+seaborn==0.13.2
+
+# ---- Config / experiment plumbing ----
+pyyaml==6.0.3
+tqdm==4.68.2
+
+# ---- Dataset access (free: Kaggle API) ----
+kaggle==2.2.1
+
+# ---- Interpretability (Phase 9) ----
+shap==0.52.0
+umap-learn==0.5.12
+
+# ---- Notebooks ----
+# NB: we intentionally avoid the full `jupyter`/`jupyterlab` metapackage. Its
+# ipywidgets labextension ships files whose paths exceed Windows' 260-char
+# limit (fails to install under a long base path without admin long-path
+# support). Notebooks run on Colab/Kaggle and via VS Code's Jupyter extension
+# using this venv as a kernel; nbconvert covers HTML report export (Phase 1.2).
+ipykernel==7.3.0
+nbconvert==7.17.1
+
+# ---- Dev / testing ----
+pytest==9.0.3
+ruff==0.15.17
