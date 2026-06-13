@@ -1,0 +1,321 @@
+{
+  "phase": "11.2 model checkpointing & registry",
+  "generated_utc": "2026-06-13T18:48:52+00:00",
+  "git_size_limit_mb": 100.0,
+  "production_model": "graphsage",
+  "production_rationale": "highest cross-time test ROC-AUC (0.777); used for scoring in Phases 7-10",
+  "hosting_summary": {
+    "largest_checkpoint_mb": 0.8845,
+    "all_git_trackable": true,
+    "hf_hub_required": false,
+    "note": "All checkpoints are < 100 MB, so they stay in git. Checkpoint binaries themselves are gitignored (*.pt/*.pkl); this registry is the tracked record. If a future model exceeds 100 MB, upload it to the free HuggingFace Hub and set its `checkpoint` to the hub URL."
+  },
+  "models": [
+    {
+      "name": "xgboost",
+      "phase": "2",
+      "architecture": "XGBoost (400 trees, depth 6) on 169 node features \u2014 no graph",
+      "checkpoint": "results/baseline_xgboost_model.pkl",
+      "is_production": false,
+      "status": "present",
+      "size_mb": 0.8845,
+      "sha256": "d1f01747352c6e503d4a09a6cc73502a634aa050cf97711e31be93e667426652",
+      "git_trackable": true,
+      "hosting": "git (size < 100 MB)",
+      "n_params": null,
+      "hyperparams": {
+        "n_estimators": 400,
+        "max_depth": 6,
+        "learning_rate": 0.1,
+        "min_child_weight": 1,
+        "scale_pos_weight": 7.634893125361063
+      },
+      "val_threshold": 0.8605799674987793,
+      "val": {
+        "f1": 0.913681738109219,
+        "roc_auc": 0.97161561990217
+      },
+      "test": {
+        "f1": 0.03208556149732621,
+        "roc_auc": 0.6832912408242263
+      }
+    },
+    {
+      "name": "gcn",
+      "phase": "4.2",
+      "architecture": "GCNConv(169->64) x2 + Linear; symmetric-normalised",
+      "checkpoint": "results/gcn_model.pt",
+      "is_production": false,
+      "status": "present",
+      "size_mb": 0.0607,
+      "sha256": "ccc3fa9124661596691cf1801ecb2ee8fbd97eb0bb4183223f38f9650e0ff1de",
+      "git_trackable": true,
+      "hosting": "git (size < 100 MB)",
+      "n_params": 15105,
+      "hyperparams": {
+        "hidden_channels": 64,
+        "dropout": 0.3,
+        "heads": 2,
+        "lr": 0.01,
+        "weight_decay": 0.0005,
+        "max_epochs": 300,
+        "patience": 30
+      },
+      "val_threshold": 0.69,
+      "val": {
+        "f1": 0.608587,
+        "precision": 0.705628,
+        "recall": 0.535011,
+        "roc_auc": 0.887387
+      },
+      "test": {
+        "f1": 0.013793,
+        "precision": 0.016529,
+        "recall": 0.011834,
+        "roc_auc": 0.621169
+      }
+    },
+    {
+      "name": "graphsage",
+      "phase": "4.3",
+      "architecture": "SAGEConv(169->64, mean) x2 + Linear",
+      "checkpoint": "results/graphsage_model.pt",
+      "is_production": true,
+      "status": "present",
+      "size_mb": 0.1182,
+      "sha256": "8cfaf2ebb7d49468911b8bb8d4c91972016feb5938dba57ea290d4f44d6dca2a",
+      "git_trackable": true,
+      "hosting": "git (size < 100 MB)",
+      "n_params": 30017,
+      "hyperparams": {
+        "hidden_channels": 64,
+        "dropout": 0.3,
+        "heads": 2,
+        "lr": 0.01,
+        "weight_decay": 0.0005,
+        "max_epochs": 300,
+        "patience": 30
+      },
+      "val_threshold": 0.54,
+      "val": {
+        "f1": 0.76399,
+        "precision": 0.860274,
+        "recall": 0.68709,
+        "roc_auc": 0.936293
+      },
+      "test": {
+        "f1": 0.019704,
+        "precision": 0.058824,
+        "recall": 0.011834,
+        "roc_auc": 0.776504
+      }
+    },
+    {
+      "name": "gat",
+      "phase": "4.4",
+      "architecture": "GATConv(169->32, heads=2) x2 + Linear",
+      "checkpoint": "results/gat_model.pt",
+      "is_production": false,
+      "status": "present",
+      "size_mb": 0.0627,
+      "sha256": "17b34da2b107148de7941315d1e0260f78ed0f3c6149ac16ada4e3d45413cec9",
+      "git_trackable": true,
+      "hosting": "git (size < 100 MB)",
+      "n_params": 15361,
+      "hyperparams": {
+        "hidden_channels": 64,
+        "dropout": 0.3,
+        "heads": 2,
+        "lr": 0.01,
+        "weight_decay": 0.0005,
+        "max_epochs": 300,
+        "patience": 30
+      },
+      "val_threshold": 0.65,
+      "val": {
+        "f1": 0.652947,
+        "precision": 0.570261,
+        "recall": 0.763676,
+        "roc_auc": 0.928521
+      },
+      "test": {
+        "f1": 0.012739,
+        "precision": 0.013793,
+        "recall": 0.011834,
+        "roc_auc": 0.680298
+      }
+    },
+    {
+      "name": "temporal_snapshot_gnn",
+      "phase": "5.1",
+      "architecture": "GraphSAGE encoder + GRUCell temporal context over 49 snapshots",
+      "checkpoint": "results/temporal_snapshot_gnn_model.pt",
+      "is_production": false,
+      "status": "present",
+      "size_mb": 0.2149,
+      "sha256": "3c3db7c56cbc0b949167238be4fffda0ddc70a9c8d3d7e46c8cc10ac42c32f13",
+      "git_trackable": true,
+      "hosting": "git (size < 100 MB)",
+      "n_params": 55041,
+      "hyperparams": {
+        "hidden_channels": 64,
+        "dropout": 0.3,
+        "lr": 0.005,
+        "weight_decay": 0.0005,
+        "max_epochs": 200,
+        "patience": 25
+      },
+      "val_threshold": 0.59,
+      "val": {
+        "f1": 0.753676,
+        "precision": 0.856546,
+        "recall": 0.672867,
+        "roc_auc": 0.948374
+      },
+      "test": {
+        "f1": 0.010753,
+        "precision": 0.058824,
+        "recall": 0.005917,
+        "roc_auc": 0.72745
+      }
+    },
+    {
+      "name": "evolve_gcn",
+      "phase": "5.2",
+      "architecture": "EvolveGCN-O: GRU evolves GCN weight matrices per snapshot",
+      "checkpoint": "results/evolve_gcn_model.pt",
+      "is_production": false,
+      "status": "present",
+      "size_mb": 0.2691,
+      "sha256": "0eca5bd0e431b4e05bad244e96cb6f2f46c5a1081003ea03da1da58b2dad1bc3",
+      "git_trackable": true,
+      "hosting": "git (size < 100 MB)",
+      "n_params": 69121,
+      "hyperparams": {
+        "hidden_channels": 64,
+        "dropout": 0.3,
+        "lr": 0.005,
+        "weight_decay": 0.0005,
+        "max_epochs": 200,
+        "patience": 25
+      },
+      "val_threshold": 0.86,
+      "val": {
+        "f1": 0.443173,
+        "precision": 0.353786,
+        "recall": 0.592998,
+        "roc_auc": 0.794746
+      },
+      "test": {
+        "f1": 0.024497,
+        "precision": 0.014374,
+        "recall": 0.08284,
+        "roc_auc": 0.601639
+      }
+    },
+    {
+      "name": "hetero_sage",
+      "phase": "6.1",
+      "architecture": "2x SAGEConv per layer (sends + receives directions), summed",
+      "checkpoint": "results/hetero_sage_model.pt",
+      "is_production": false,
+      "status": "present",
+      "size_mb": 0.2344,
+      "sha256": "0a85883b6bedf4cc70425de46cbaf18b4f319f280e49457e508feaa80a5ba110",
+      "git_trackable": true,
+      "hosting": "git (size < 100 MB)",
+      "n_params": 59969,
+      "hyperparams": {
+        "hidden_channels": 64,
+        "dropout": 0.3,
+        "heads": 2,
+        "lr": 0.01,
+        "weight_decay": 0.0005,
+        "max_epochs": 300,
+        "patience": 30
+      },
+      "val_threshold": 0.63,
+      "val": {
+        "f1": 0.743575,
+        "precision": 0.777778,
+        "recall": 0.712254,
+        "roc_auc": 0.949778
+      },
+      "test": {
+        "f1": 0.019048,
+        "precision": 0.04878,
+        "recall": 0.011834,
+        "roc_auc": 0.750777
+      }
+    },
+    {
+      "name": "hgat",
+      "phase": "6.1",
+      "architecture": "2x GATConv per layer (sends + receives directions), summed",
+      "checkpoint": "results/hgat_model.pt",
+      "is_production": false,
+      "status": "present",
+      "size_mb": 0.1233,
+      "sha256": "68818edc215cdb9b2fc1e00ec40cbfc505062adb160d40685cd9aee60b5fc5fe",
+      "git_trackable": true,
+      "hosting": "git (size < 100 MB)",
+      "n_params": 30657,
+      "hyperparams": {
+        "hidden_channels": 64,
+        "dropout": 0.3,
+        "heads": 2,
+        "lr": 0.01,
+        "weight_decay": 0.0005,
+        "max_epochs": 300,
+        "patience": 30
+      },
+      "val_threshold": 0.76,
+      "val": {
+        "f1": 0.668909,
+        "precision": 0.596401,
+        "recall": 0.761488,
+        "roc_auc": 0.927106
+      },
+      "test": {
+        "f1": 0.012422,
+        "precision": 0.013072,
+        "recall": 0.011834,
+        "roc_auc": 0.716059
+      }
+    },
+    {
+      "name": "htgn",
+      "phase": "6.2",
+      "architecture": "HeteroSAGE encoder + GRU temporal context (MAIN hetero-temporal model)",
+      "checkpoint": "results/htgn_model.pt",
+      "is_production": false,
+      "status": "present",
+      "size_mb": 0.3307,
+      "sha256": "85246e130377c85584dfe86bcc630df701e855cd22d3240004dbd0dec167c8a4",
+      "git_trackable": true,
+      "hosting": "git (size < 100 MB)",
+      "n_params": 84993,
+      "hyperparams": {
+        "hidden_channels": 64,
+        "dropout": 0.3,
+        "lr": 0.005,
+        "weight_decay": 0.0005,
+        "max_epochs": 200,
+        "patience": 25
+      },
+      "val_threshold": 0.93,
+      "val": {
+        "f1": 0.800962,
+        "precision": 0.889186,
+        "recall": 0.728665,
+        "roc_auc": 0.959724
+      },
+      "test": {
+        "f1": 0.030151,
+        "precision": 0.1,
+        "recall": 0.017751,
+        "roc_auc": 0.711172
+      }
+    }
+  ]
+}

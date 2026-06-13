@@ -1,0 +1,71 @@
+{
+  "phase": "11.1 scalability",
+  "model": "GraphSAGE",
+  "device": "cpu",
+  "torch_threads": 8,
+  "n_runs_per_scale": 3,
+  "method": "disjoint k-tiling of the real Elliptic graph (same degree/feature stats)",
+  "base_graph": {
+    "n_nodes": 203769,
+    "n_edges": 234355,
+    "n_features": 169
+  },
+  "measurements": [
+    {
+      "scale": 1,
+      "n_nodes": 203769,
+      "n_edges": 234355,
+      "input_footprint_mb": 134.9,
+      "latency_ms_mean": 361.47,
+      "latency_ms_std": 6.01,
+      "ms_per_1k_nodes": 1.7739,
+      "tracemalloc_peak_mb": 0.0
+    },
+    {
+      "scale": 2,
+      "n_nodes": 407538,
+      "n_edges": 468710,
+      "input_footprint_mb": 269.9,
+      "latency_ms_mean": 507.9,
+      "latency_ms_std": 9.63,
+      "ms_per_1k_nodes": 1.2463,
+      "tracemalloc_peak_mb": 0.01
+    },
+    {
+      "scale": 5,
+      "n_nodes": 1018845,
+      "n_edges": 1171775,
+      "input_footprint_mb": 674.7,
+      "latency_ms_mean": 1236.96,
+      "latency_ms_std": 42.89,
+      "ms_per_1k_nodes": 1.2141,
+      "tracemalloc_peak_mb": 0.01
+    },
+    {
+      "scale": 10,
+      "n_nodes": 2037690,
+      "n_edges": 2343550,
+      "input_footprint_mb": 1349.4,
+      "latency_ms_mean": 2362.03,
+      "latency_ms_std": 54.38,
+      "ms_per_1k_nodes": 1.1592,
+      "tracemalloc_peak_mb": 0.01
+    }
+  ],
+  "bottleneck": {
+    "latency_vs_nodes": {
+      "ms_per_node": 0.001109174143870996,
+      "intercept_ms": 100.02112244897931,
+      "r2": 0.9987
+    },
+    "latency_vs_edges": {
+      "ms_per_edge": 0.0009644142694734441,
+      "intercept_ms": 100.02112244897901,
+      "r2": 0.9987
+    },
+    "ms_per_1k_nodes_relative_drift": 0.4559,
+    "scaling_verdict": "sub-linear (fixed overhead amortised at large scale)",
+    "dominant_memory_term": "node feature tensor (N x 169 float32)",
+    "note": "Full-batch transductive inference holds the entire graph in memory; feature tensor dominates footprint and grows linearly with N. Message-passing compute grows with E. Under disjoint tiling N and E scale together, matching Elliptic's mean degree ~2.3."
+  }
+}
