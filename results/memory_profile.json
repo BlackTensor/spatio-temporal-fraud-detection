@@ -1,0 +1,50 @@
+{
+  "_dataset": {
+    "n_nodes": 203769,
+    "n_edges": 234355,
+    "feature_matrix_MB": 131.37,
+    "edge_index_MB": 3.58,
+    "total_input_MB": 134.94
+  },
+  "gcn": {
+    "peak_inference_MB": 0.94,
+    "n_params": 15105,
+    "notes": "Full-batch transductive, 203769 nodes"
+  },
+  "graphsage": {
+    "peak_inference_MB": 0.18,
+    "n_params": 30017,
+    "notes": "Full-batch transductive, 203769 nodes"
+  },
+  "gat": {
+    "peak_inference_MB": 0.17,
+    "n_params": 15361,
+    "notes": "Full-batch transductive, 203769 nodes"
+  },
+  "hetero_sage": {
+    "peak_inference_MB": 0.21,
+    "n_params": 59969,
+    "notes": "Full-batch transductive, 203769 nodes"
+  },
+  "hgat": {
+    "peak_inference_MB": 0.21,
+    "n_params": 30657,
+    "notes": "Full-batch transductive, 203769 nodes"
+  },
+  "temporal_snapshot_gnn": {
+    "peak_inference_MB": "varies (sequential snapshot processing)",
+    "notes": "Peak per snapshot * 49 snapshots sequentially"
+  },
+  "evolve_gcn": {
+    "peak_inference_MB": "varies (sequential snapshot processing)",
+    "notes": "Weight matrices evolved in-memory per snapshot"
+  },
+  "htgn": {
+    "peak_inference_MB": "varies (sequential snapshot processing)",
+    "notes": "HeteroSAGE encoder per snapshot + GRU hidden state"
+  },
+  "xgboost": {
+    "peak_inference_MB": 136.37,
+    "notes": "Feature matrix only; no graph stored in memory"
+  }
+}
