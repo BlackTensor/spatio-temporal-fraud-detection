@@ -1,0 +1,48 @@
+{
+  "threshold_source": "val-set Youden-J optimal (no test leakage)",
+  "threshold": 0.8605799674987793,
+  "test_f1": 0.03208556149732621,
+  "test_f1_at_0.5": 0.040983606557377046,
+  "test_roc_auc": 0.6832912408242263,
+  "inference_ms_total": 15.913500000351632,
+  "inference_ms_per_node": 0.0023797667115824186,
+  "confusion_matrix": {
+    "TP": 3,
+    "TN": 6503,
+    "FP": 15,
+    "FN": 166
+  },
+  "classification_report": {
+    "licit": {
+      "precision": 0.9751087119508172,
+      "recall": 0.9976986805768641,
+      "f1-score": 0.9862743611132175,
+      "support": 6518.0
+    },
+    "illicit": {
+      "precision": 0.16666666666666666,
+      "recall": 0.01775147928994083,
+      "f1-score": 0.03208556149732621,
+      "support": 169.0
+    },
+    "accuracy": 0.9729325557050994,
+    "macro avg": {
+      "precision": 0.5708876893087419,
+      "recall": 0.5077250799334024,
+      "f1-score": 0.5091799613052719,
+      "support": 6687.0
+    },
+    "weighted avg": {
+      "precision": 0.9546770227549115,
+      "recall": 0.9729325557050994,
+      "f1-score": 0.9621592262044265,
+      "support": 6687.0
+    }
+  },
+  "temporal_drift_note": "Illicit prevalence: train=11.6%, val=9.2%, test=2.5%. The sharp drop from val\u2192test (ts 43-49) reflects real concept drift in the Elliptic dataset. ROC-AUC is a threshold-free rank metric and is more reliable for cross-time comparisons than F1.",
+  "fp_fn_analysis": {
+    "false_positive_rate": 0.0023013194231359313,
+    "false_negative_rate": 0.9822485207100592,
+    "note": "FP = licit transactions flagged as illicit (alert fatigue). FN = missed illicit transactions (fraud escapes). Threshold tuned to maximise Youden J on val set and applied to test."
+  }
+}

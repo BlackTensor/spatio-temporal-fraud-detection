@@ -1,0 +1,80 @@
+{
+  "top_15_features": [
+    {
+      "rank": 1,
+      "feature": "feat_46",
+      "importance": 0.1137223020195961
+    },
+    {
+      "rank": 2,
+      "feature": "feat_53",
+      "importance": 0.09565765410661697
+    },
+    {
+      "rank": 3,
+      "feature": "feat_5",
+      "importance": 0.0436633825302124
+    },
+    {
+      "rank": 4,
+      "feature": "feat_90",
+      "importance": 0.042039625346660614
+    },
+    {
+      "rank": 5,
+      "feature": "feat_14",
+      "importance": 0.04029278829693794
+    },
+    {
+      "rank": 6,
+      "feature": "feat_136",
+      "importance": 0.03676528111100197
+    },
+    {
+      "rank": 7,
+      "feature": "feat_163",
+      "importance": 0.03345160931348801
+    },
+    {
+      "rank": 8,
+      "feature": "feat_22",
+      "importance": 0.031697630882263184
+    },
+    {
+      "rank": 9,
+      "feature": "feat_103",
+      "importance": 0.03049146570265293
+    },
+    {
+      "rank": 10,
+      "feature": "feat_59",
+      "importance": 0.02912191115319729
+    },
+    {
+      "rank": 11,
+      "feature": "feat_37",
+      "importance": 0.02023199386894703
+    },
+    {
+      "rank": 12,
+      "feature": "feat_159",
+      "importance": 0.01775273308157921
+    },
+    {
+      "rank": 13,
+      "feature": "feat_100",
+      "importance": 0.01727743074297905
+    },
+    {
+      "rank": 14,
+      "feature": "feat_1",
+      "importance": 0.014458012767136097
+    },
+    {
+      "rank": 15,
+      "feature": "feat_47",
+      "importance": 0.013877338729798794
+    }
+  ],
+  "note": "Importance = average gain across all splits that use the feature. Top features are anonymised Elliptic transaction attributes; in_degree/out_degree and time_step_norm appear if graph-structural features dominate over raw transaction features."
+}
