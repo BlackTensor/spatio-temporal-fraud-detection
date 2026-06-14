@@ -273,7 +273,7 @@ if page == "Overview":
         unsafe_allow_html=True,
     )
     st.markdown(
-        "A production-grade Graph Neural Network system trained on the "
+        "A research-grade Graph Neural Network system trained on the "
         "[Elliptic Bitcoin Dataset](https://www.kaggle.com/datasets/ellipticco/elliptic-data-set) "
         "to detect illicit transactions in dynamic, temporal graphs.  \n"
         "**Built entirely on free tooling — $0 budget enforced.**"
