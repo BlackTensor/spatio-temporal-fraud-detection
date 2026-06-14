@@ -166,6 +166,38 @@ st.markdown(
       }
       .fd-step .t { font-weight: 600; font-size: 0.95rem; color: #F1F5F9; margin: 0.35rem 0 0.4rem; }
       .fd-step .b { color: #94A3B8; font-size: 0.76rem; line-height: 1.45; }
+
+      /* Overview hero panel */
+      .fd-hero {
+        background:
+          radial-gradient(1200px 220px at 0% 0%, rgba(96,165,250,0.10), transparent 60%),
+          linear-gradient(135deg, #16233b 0%, #0F172A 55%);
+        border: 1px solid #334155; border-radius: 14px;
+        padding: 30px 32px; margin: 0.2rem 0 0.6rem;
+      }
+      .fd-hero .eyebrow {
+        color: #60A5FA; font-size: 0.72rem; font-weight: 600;
+        text-transform: uppercase; letter-spacing: 0.16em; margin-bottom: 0.55rem;
+      }
+      .fd-hero .title {
+        font-size: 2.15rem; font-weight: 700; line-height: 1.14;
+        letter-spacing: -0.025em; color: #F1F5F9; margin-bottom: 0.5rem;
+      }
+      .fd-hero .title .accent { color: #60A5FA; }
+      .fd-hero .byline { color: #94A3B8; font-size: 0.85rem; margin-bottom: 1rem; }
+      .fd-hero .byline b { color: #CBD5E1; font-weight: 600; }
+      .fd-hero .desc {
+        color: #CBD5E1; font-size: 0.99rem; line-height: 1.6;
+        max-width: 64ch; margin-bottom: 1.2rem;
+      }
+      .fd-hero .desc a { color: #60A5FA; text-decoration: none; }
+      .fd-hero .desc a:hover { text-decoration: underline; }
+      .fd-hero .badges { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+      .fd-badge {
+        background: #1E293B; border: 1px solid #334155; color: #CBD5E1;
+        font-size: 0.76rem; font-weight: 500; padding: 4px 12px; border-radius: 999px;
+      }
+      .fd-badge.green { color: #34D399; border-color: #2A5C4A; background: #102a22; }
     </style>
     """,
     unsafe_allow_html=True,
@@ -265,18 +297,24 @@ st.sidebar.markdown(
 # PAGE 1 — OVERVIEW
 # ══════════════════════════════════════════════════════════════════════════════
 if page == "Overview":
-    st.title("Spatio-Temporal Fraud Detection with GNNs")
     st.markdown(
-        "<div style='color:#94A3B8;font-size:0.85rem;margin:-0.6rem 0 0.7rem;"
-        "letter-spacing:0.02em;'>Architected by "
-        "<b style='color:#CBD5E1'>Shayan Ansari</b> · 2026</div>",
+        "<div class='fd-hero'>"
+        "<div class='eyebrow'>Graph Neural Network Anomaly Detection</div>"
+        "<div class='title'>Spatio-Temporal Fraud Detection "
+        "<span class='accent'>with GNNs</span></div>"
+        "<div class='byline'>Architected by <b>Shayan Ansari</b> · 2026</div>"
+        "<div class='desc'>A <b>research-grade</b> Graph Neural Network system trained on "
+        "the <a href='https://www.kaggle.com/datasets/ellipticco/elliptic-data-set' "
+        "target='_blank'>Elliptic Bitcoin Dataset</a> to detect illicit transactions in "
+        "dynamic, temporal graphs — built entirely on free tooling, with a $0 budget "
+        "enforced end to end.</div>"
+        "<div class='badges'>"
+        "<span class='fd-badge green'>$0 budget</span>"
+        "<span class='fd-badge'>203,769-node graph</span>"
+        "<span class='fd-badge'>9 models benchmarked</span>"
+        "<span class='fd-badge'>PyTorch Geometric</span>"
+        "</div></div>",
         unsafe_allow_html=True,
-    )
-    st.markdown(
-        "A research-grade Graph Neural Network system trained on the "
-        "[Elliptic Bitcoin Dataset](https://www.kaggle.com/datasets/ellipticco/elliptic-data-set) "
-        "to detect illicit transactions in dynamic, temporal graphs.  \n"
-        "**Built entirely on free tooling — $0 budget enforced.**"
     )
 
     st.markdown("### Why This Project Exists")
