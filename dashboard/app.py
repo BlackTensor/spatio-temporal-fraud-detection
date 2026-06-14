@@ -555,10 +555,11 @@ elif page == "Anomaly Explorer":
     st.markdown(f"### Top Anomalies in Time Step {ts}")
     ts_anoms = top100[top100["time_step"] == ts].copy()
     if ts_anoms.empty:
-        st.info(
-            f"No top-100 anomalies fall in ts={ts}. "
-            "The global top-100 are concentrated in ts 43-47 (test period). "
-            "Try ts 43, 45, 46, or 47."
+        info_card(
+            f"No top-100 anomalies fall in ts {ts}",
+            "The global top-100 are concentrated in ts 43–47 (test period). "
+            "Try ts 43, 45, 46, or 47.",
+            accent=C["gray"],
         )
     else:
         ts_anoms["label_display"] = ts_anoms["label_text"].map(
@@ -909,7 +910,12 @@ elif page == "Interpretability":
         if shap_img.exists():
             st.image(str(shap_img), caption="SHAP analysis (top-20 anomalies)")
         else:
-            st.info("SHAP values file found but mean_abs_shap key not present.")
+            info_card(
+                "SHAP values unavailable",
+                "SHAP values file found but the <code>mean_abs_shap</code> key is "
+                "not present.",
+                accent=C["gray"],
+            )
 
     st.markdown(
         "**Key finding:** The score is driven by the node's **own feature vector** "
@@ -1006,10 +1012,12 @@ elif page == "Interpretability":
         "not neighbor propagation. This is independently confirmed by SHAP (above) and "
         "GAT self-loop attention (above)."
     )
-    st.markdown(
-        "> **Operational implication:** New/isolated transactions can be scored immediately "
-        "with near-perfect accuracy (inductive inference — no graph context needed). "
-        "Cold-start AUC drops only 0.777 → 0.680 with all edges removed (Phase 10)."
+    info_card(
+        "Operational implication",
+        "New/isolated transactions can be scored immediately with near-perfect "
+        "accuracy (inductive inference — no graph context needed). Cold-start AUC "
+        "drops only 0.777 → 0.680 with all edges removed (Phase 10).",
+        accent=C["blue"],
     )
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -1087,11 +1095,12 @@ elif page == "Scalability":
 
     st.markdown("---")
     st.markdown("### Scaling Verdict")
-    st.success(
-        f"**Sub-linear scaling** — fixed overhead amortises at large scale. "
-        f"Per-node cost drops from {sc_df['ms_per_1k_nodes'][0]:.2f} ms/1k "
-        f"(1×) → {sc_df['ms_per_1k_nodes'][3]:.2f} ms/1k (10×). "
-        f"Linear fit R² = {sc['bottleneck']['latency_vs_nodes']['r2']:.4f}."
+    info_card(
+        "Sub-linear scaling — fixed overhead amortises at large scale",
+        f"Per-node cost drops from <b>{sc_df['ms_per_1k_nodes'][0]:.2f} ms/1k</b> "
+        f"(1×) → <b>{sc_df['ms_per_1k_nodes'][3]:.2f} ms/1k</b> (10×). "
+        f"Linear fit R² = {sc['bottleneck']['latency_vs_nodes']['r2']:.4f}.",
+        accent=C["green"],
     )
 
     # ── Model registry ────────────────────────────────────────────────────────
@@ -1112,4 +1121,9 @@ elif page == "Scalability":
         if reg_rows:
             st.dataframe(pd.DataFrame(reg_rows), use_container_width=True, hide_index=True)
     except FileNotFoundError:
-        st.info("model_registry.json not found at config/model_registry.json")
+        info_card(
+            "Model registry unavailable",
+            "<code>model_registry.json</code> not found at "
+            "<code>config/model_registry.json</code>.",
+            accent=C["gray"],
+        )
