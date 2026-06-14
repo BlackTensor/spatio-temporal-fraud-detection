@@ -267,11 +267,30 @@ st.sidebar.markdown(
 if page == "Overview":
     st.title("Spatio-Temporal Fraud Detection with GNNs")
     st.markdown(
+        "<div style='color:#94A3B8;font-size:0.85rem;margin:-0.6rem 0 0.7rem;"
+        "letter-spacing:0.02em;'>Architected by "
+        "<b style='color:#CBD5E1'>Shayan Ansari</b> · 2026</div>",
+        unsafe_allow_html=True,
+    )
+    st.markdown(
         "A production-grade Graph Neural Network system trained on the "
         "[Elliptic Bitcoin Dataset](https://www.kaggle.com/datasets/ellipticco/elliptic-data-set) "
         "to detect illicit transactions in dynamic, temporal graphs.  \n"
         "**Built entirely on free tooling — $0 budget enforced.**"
     )
+
+    st.markdown("### Why This Project Exists")
+    st.markdown(
+        "Does graph, temporal, or heterogeneous structure actually help fraud detection "
+        "**generalize as fraud evolves** — or does it just add complexity and cost? "
+        "To find out, this project builds a *ladder* of models on the same temporally-split "
+        "Elliptic data — from a feature-only **XGBoost control** up to a heterogeneous "
+        "temporal GNN — and measures each rung's lift on a future time window it never "
+        "trained on. Every model is judged not by how well it fits the past, but by how "
+        "well it holds up once the world moves."
+    )
+
+    st.markdown("---")
 
     # ── Dataset stats ────────────────────────────────────────────────────────
     eda = load_eda_stats()
@@ -355,13 +374,71 @@ if page == "Overview":
     st.dataframe(df_summary, use_container_width=True, hide_index=True)
 
     st.markdown("---")
-    st.markdown("### Key Finding — Concept Drift")
+    st.markdown("### The Investigation")
     st.markdown(
-        "The Elliptic dataset has a severe temporal shift: illicit prevalence drops from "
-        "**11.6%** (training) → **9.2%** (val) → **2.5%** (test). "
-        "This penalises complex temporal models that overfit training dynamics. "
-        "**GraphSAGE's inductive mean-aggregation generalises best** across this shift "
-        "(Test AUC 0.777 vs XGBoost 0.683). See *Concept Drift* page for full analysis."
+        "The Elliptic timeline hides a brutal distribution shift: illicit prevalence "
+        "collapses from **11.6%** (train) → **9.2%** (val) → **2.5%** (test). Climbing the "
+        "model ladder against that shift produced one consistent — and counterintuitive — "
+        "story. (The *Concept Drift* page has the per-time-step breakdown.)"
+    )
+
+    beats = [
+        ("1 · The baseline collapse",
+         "XGBoost on node features alone scored an excellent <b>0.914 validation F1</b> "
+         "in-distribution — then cratered to <b>0.032 test F1</b> on the later period, "
+         "barely above chance. A feature-only model simply can't track fraud once the "
+         "patterns themselves evolve over time.",
+         C["red"]),
+        ("2 · Graph structure helps",
+         "Adding the transaction graph lifted GraphSAGE to <b>0.777 test AUC — +14% over "
+         "XGBoost's 0.683</b>. Relationships carry signal that survives the drift. But the "
+         "<b>type</b> of graph model matters: GCN underperformed because money flows are "
+         "<b>directed</b> (A→B), and its symmetric message-passing blurs that asymmetry. "
+         "GAT only matched the XGBoost baseline — at appreciably higher compute cost.",
+         C["green"]),
+        ("3 · Temporal memory hurts",
+         "Explicitly modelling the sequence of past snapshots (SnapshotGNN, EvolveGCN) "
+         "raised <b>validation</b> AUC — yet <b>lowered</b> test AUC. The added memory "
+         "latched onto historical fraud rhythms that simply didn't recur in the test period.",
+         C["yellow"]),
+        ("4 · Heterogeneous structure, same trap",
+         "Direction-typed heterogeneous message passing told the identical story. HTGN "
+         "posted the project's <b>best-ever validation AUC (0.960)</b> — and still fell "
+         "short of plain GraphSAGE on the test set.",
+         C["violet"]),
+        ("5 · The throughline",
+         "Every added layer of sophistication improved <b>same-distribution</b> "
+         "(validation) performance and degraded <b>cross-time</b> (test) generalization. "
+         "The simplest model was simultaneously the most robust <b>and</b> the fastest.",
+         C["blue"]),
+    ]
+    for i, (b_title, b_body, b_accent) in enumerate(beats):
+        info_card(b_title, b_body, accent=b_accent)
+        if i < len(beats) - 1:
+            st.markdown("<div style='height:0.55rem'></div>", unsafe_allow_html=True)
+
+    st.markdown("### Structural Discovery")
+    info_card(
+        "49 disconnected subgraphs — one per time step",
+        "The Elliptic graph isn't a single connected network. It decomposes into "
+        "<b>49 fully disconnected components, one per time step</b> — transactions never "
+        "link across time periods. That made temporal snapshotting the <b>natural</b> unit "
+        "of modelling, not an arbitrary design choice.",
+        accent=C["sky"],
+    )
+
+    st.markdown("### Practitioner Takeaway")
+    st.markdown(
+        "<div class='fd-card' style='border-left:4px solid #60A5FA;background:#16233b'>"
+        "<div class='t'>Prefer simple, robust models — spend complexity elsewhere</div>"
+        "<div class='b'>Under severe concept drift, reach for <b>simple inductive "
+        "architectures</b> before complex temporal or heterogeneous ones — the extra "
+        "capacity tends to memorise patterns that won't persist. Put the engineering "
+        "effort into <b>drift detection and retraining triggers</b> instead. And there's "
+        "no accuracy-for-speed tradeoff to weigh: every GNN variant ran comfortably under "
+        "the <b>100 ms / node</b> latency target (≈1–2 ms per 1,000 nodes), so GraphSAGE "
+        "wins on robustness <b>and</b> speed.</div></div>",
+        unsafe_allow_html=True,
     )
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -465,17 +542,56 @@ elif page == "Anomaly Explorer":
     # ── Global top-100 overview ───────────────────────────────────────────────
     st.markdown("### Global Top-100 Anomalies by Time Step")
     label_counts = top100.groupby(["time_step", "label_text"]).size().reset_index(name="count")
-    fig2 = px.bar(
-        label_counts, x="time_step", y="count", color="label_text",
-        color_discrete_map=LABEL_COLORS,
-        labels={"time_step": "Time Step", "count": "# in Top-100", "label_text": "Label"},
-        template="fraud", height=300,
+
+    # Pivot to one column per label so we can stack in a deliberate order with the
+    # rare labeled segments capped on top (otherwise the licit/illicit slivers are
+    # buried under the dominant unknown count and become invisible).
+    pivot = (label_counts
+             .pivot(index="time_step", columns="label_text", values="count")
+             .fillna(0))
+    for lab in ("unknown", "licit", "illicit"):
+        if lab not in pivot.columns:
+            pivot[lab] = 0
+    pivot = pivot.sort_index()
+    ts_x = pivot.index.tolist()
+    totals = pivot.sum(axis=1)
+    grand_total = int(totals.sum())
+    unknown_total = int(pivot["unknown"].sum())
+    peak_ts = int(totals.idxmax())
+    peak_val = int(totals.max())
+
+    # unknown (bottom) → licit → illicit (top), so the scarce labeled nodes sit as
+    # outlined caps at the top of each bar where they're actually legible.
+    fig2 = go.Figure()
+    for lab, disp in [("unknown", "Unknown"), ("licit", "Licit"), ("illicit", "Illicit")]:
+        fig2.add_trace(go.Bar(
+            x=ts_x, y=pivot[lab], name=disp,
+            marker_color=LABEL_COLORS[lab],
+            marker_line=dict(width=0.6, color=C["bg"]),
+            hovertemplate=f"<b>{disp}</b>: %{{y:.0f}} of top-100<extra></extra>",
+        ))
+    fig2.update_layout(
+        barmode="stack", template="fraud", height=320, bargap=0.22,
+        hovermode="x unified",
+        legend_title="Label",
+        legend=dict(orientation="h", y=1.14, x=0),
+        xaxis_title="Time Step", yaxis_title="# in Top-100",
     )
-    fig2.update_layout(legend_title="Label")
+    fig2.update_xaxes(dtick=1)
+    # Subtle callout on the dominant pattern.
+    fig2.add_annotation(
+        x=peak_ts, y=peak_val,
+        text=f"Unknown-label nodes dominate<br>{unknown_total} / {grand_total} of the top-100",
+        showarrow=True, arrowhead=2, arrowsize=1, arrowwidth=1, arrowcolor=C["gray"],
+        ax=44, ay=-40,
+        align="left", font=dict(color=C["muted"], size=11),
+        bgcolor="rgba(30,41,59,0.9)", bordercolor=C["border"], borderwidth=1, borderpad=6,
+    )
     show(fig2)
     st.caption(
         "99% of the global top-100 are **unknown**-label nodes — Elliptic only labelled ~23% "
-        "of nodes. High-scoring unknown nodes are operationally valid suspicious alerts."
+        "of nodes. High-scoring unknown nodes are operationally valid suspicious alerts. "
+        "Hover any bar to see the exact licit / illicit / unknown split for that time step."
     )
 
 # ══════════════════════════════════════════════════════════════════════════════
