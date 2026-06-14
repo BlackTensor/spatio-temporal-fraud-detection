@@ -184,8 +184,11 @@ st.markdown(
         letter-spacing: -0.025em; color: #F1F5F9; margin-bottom: 0.5rem;
       }
       .fd-hero .title .accent { color: #60A5FA; }
-      .fd-hero .byline { color: #94A3B8; font-size: 0.85rem; margin-bottom: 1rem; }
-      .fd-hero .byline b { color: #CBD5E1; font-weight: 600; }
+      .fd-hero .byline { color: #94A3B8; font-size: 0.9rem; margin-bottom: 1.1rem; }
+      .fd-hero .byline b {
+        color: #F1F5F9; font-weight: 700; font-size: 1.18rem;
+        letter-spacing: -0.01em; padding: 0 0.06em;
+      }
       .fd-hero .desc {
         color: #CBD5E1; font-size: 0.99rem; line-height: 1.6;
         max-width: 64ch; margin-bottom: 1.2rem;
@@ -495,18 +498,17 @@ elif page == "Anomaly Explorer":
 
     # ── Time-step selector ────────────────────────────────────────────────────
     st.markdown("### Select Time Step")
-    col_slider, col_info = st.columns([3, 1])
-    with col_slider:
-        ts = st.slider("Time Step", 1, 49, 43, help="ts 1-34 = train | 35-42 = val | 43-49 = test")
+    ts = st.slider("Time Step", 1, 49, 43,
+                   help="ts 1-34 = train | 35-42 = val | 43-49 = test")
     row = ts_data[ts_data["time_step"] == ts].iloc[0]
-    with col_info:
-        split = "Train" if ts <= 34 else ("Val" if ts <= 42 else "Test")
-        st.metric("Split", split)
-        st.metric("Labeled nodes", int(row["n_labeled"]))
-        st.metric("Illicit nodes", int(row["n_illicit"]))
-        st.metric("Prevalence", f"{row['illicit_prevalence']*100:.1f}%")
-        if not np.isnan(row["roc_auc"]):
-            st.metric("AUC @ ts", f"{row['roc_auc']:.4f}")
+    split = "Train" if ts <= 34 else ("Val" if ts <= 42 else "Test")
+    m1, m2, m3, m4, m5 = st.columns(5)
+    m1.metric("Split", split)
+    m2.metric("Labeled nodes", int(row["n_labeled"]))
+    m3.metric("Illicit nodes", int(row["n_illicit"]))
+    m4.metric("Prevalence", f"{row['illicit_prevalence']*100:.1f}%")
+    if not np.isnan(row["roc_auc"]):
+        m5.metric("AUC @ ts", f"{row['roc_auc']:.4f}")
 
     # ── Per-timestep line chart ───────────────────────────────────────────────
     st.markdown("### AUC & Illicit Prevalence Over Time")
