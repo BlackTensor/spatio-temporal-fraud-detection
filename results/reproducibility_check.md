@@ -5,7 +5,7 @@ Global seed: **42**  ·  Device: **CPU** (Windows-on-ARM, no GPU)
 
 ## Verdict: ✅ REPRODUCIBLE
 
-Goal: `git clone && pip install && python -m ...` reproduces the recorded results. CPU full-batch training with a fixed seed is deterministic, so the checkpoints and metrics in the project roadmap regenerate exactly.
+Goal: `git clone && pip install && python -m ...` reproduces the recorded results. CPU full-batch training with a fixed seed is deterministic, so the recorded checkpoints and metrics regenerate exactly.
 
 ## 1. Seed coverage
 

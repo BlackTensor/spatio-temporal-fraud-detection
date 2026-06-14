@@ -3,7 +3,7 @@
 Phases covered
 --------------
 6.1  HeteroSAGE  — static, two-direction SAGEConv (hetero analog of GraphSAGE)
-     HGAT        — static, two-direction GATConv  (Phase 6.1 in the project roadmap)
+     HGAT        — static, two-direction GATConv  (Phase 6.1)
 6.2  HTGN        — temporal + heterogeneous (HeteroSAGE encoder + GRU)
 6.3  Ablation    — full comparison table across Phases 2–6 + ROC curves
 

@@ -1,0 +1,77 @@
+# Streamlit theme — Fraud Detection GNN dashboard
+# Professional dark "financial dashboard" palette: deep slate + Inter, with a
+# unified chart palette so Plotly figures match the app chrome.
+# Only [theme] is defined → app is locked to this single (dark) mode, which keeps
+# the hardcoded chart/card colors in app.py consistent.
+
+[theme]
+base = "dark"
+primaryColor = "#60A5FA"              # Bright blue — buttons, links, active nav
+backgroundColor = "#0F172A"           # Deep slate (main)
+secondaryBackgroundColor = "#1E293B"  # Slightly lighter slate (cards, widgets)
+codeBackgroundColor = "#1E293B"
+textColor = "#F1F5F9"                 # Light slate text
+linkColor = "#60A5FA"
+borderColor = "#334155"
+codeTextColor = "#CBD5E1"
+showWidgetBorder = true
+showSidebarBorder = true
+baseRadius = "8px"
+buttonRadius = "8px"
+
+# Typography — clean, professional
+font = "'Inter':https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+headingFont = "'Inter':https://fonts.googleapis.com/css2?family=Inter:wght@600;700&display=swap"
+codeFont = "'JetBrains Mono':https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap"
+baseFontSize = 14
+baseFontWeight = 400
+codeFontSize = "13px"
+headingFontSizes = ["30px", "22px", "18px", "16px", "14px", "12px"]
+headingFontWeights = [700, 600, 600, 600, 500, 500]
+linkUnderline = false
+
+# Semantic colors
+greenColor = "#34D399"   # Positive / licit
+redColor = "#F87171"     # Negative / illicit / alert
+yellowColor = "#FBBF24"  # Caution
+orangeColor = "#FB923C"  # Warning
+blueColor = "#60A5FA"    # Informational
+violetColor = "#A78BFA"  # Accent / temporal
+grayColor = "#94A3B8"    # Neutral / secondary
+
+# Unified chart palette (categorical)
+chartCategoricalColors = [
+    "#60A5FA",
+    "#34D399",
+    "#A78BFA",
+    "#F87171",
+    "#FBBF24",
+    "#38BDF8",
+    "#94A3B8",
+    "#FB923C",
+]
+
+# Sequential palette for heatmaps (slate → blue)
+chartSequentialColors = [
+    "#0C4A6E",
+    "#075985",
+    "#0369A1",
+    "#0284C7",
+    "#0EA5E9",
+    "#38BDF8",
+    "#7DD3FC",
+    "#BAE6FD",
+    "#E0F2FE",
+    "#F0F9FF",
+]
+
+dataframeBorderColor = "#334155"
+dataframeHeaderBackgroundColor = "#1E293B"
+
+[theme.sidebar]
+backgroundColor = "#0B1220"           # A touch darker than main for separation
+secondaryBackgroundColor = "#1E293B"
+codeBackgroundColor = "#1E293B"
+textColor = "#F1F5F9"
+borderColor = "#334155"
+primaryColor = "#60A5FA"

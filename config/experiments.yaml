@@ -1,7 +1,7 @@
 # Phase 11.3 — Experiment configuration (single source of truth)
 # =============================================================================
-# Every hyperparameter, seed, and split boundary used to produce the results in
-# the project roadmap is recorded here. The training scripts hard-code the same values
+# Every hyperparameter, seed, and split boundary used to produce the project's
+# results is recorded here. The training scripts hard-code the same values
 # (see `defined_in` per block); this file documents them in one place so a fresh
 # clone can be reproduced and audited. Validated by:
 #     python -m src.evaluation.reproducibility   -> results/reproducibility_check.md

@@ -49,6 +49,10 @@ umap-learn==0.5.12
 ipykernel==7.3.0
 nbconvert==7.17.1
 
+# ---- Dashboard / API (Phase 12–13) ----
+streamlit==1.45.1
+plotly==6.1.2
+
 # ---- Dev / testing ----
 pytest==9.0.3
 ruff==0.15.17

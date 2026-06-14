@@ -14,7 +14,7 @@ asserting — that the pipeline is reproducible:
   4. Metric reproduction  — recomputes test ROC-AUC / F1 from the loaded
                             checkpoint and the recorded val threshold, and checks
                             they match the numbers in graphsage_training.json
-                            (and thus the project roadmap) within tolerance.
+                            within tolerance.
 
 Usage
 -----
@@ -159,7 +159,7 @@ def write_report(seed_rows, seed_ok, cfg_rows, det, met, out: Path) -> None:
         "",
         "Goal: `git clone && pip install && python -m ...` reproduces the recorded "
         "results. CPU full-batch training with a fixed seed is deterministic, so the "
-        "checkpoints and metrics in the project roadmap regenerate exactly.",
+        "recorded checkpoints and metrics regenerate exactly.",
         "",
         "## 1. Seed coverage",
         "",

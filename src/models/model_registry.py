@@ -7,7 +7,7 @@ the XGBoost baseline JSONs). The production scoring model is flagged.
 
 Hosting decision (per the $0 / free-tooling constraint)
 -------------------------------------------------------
-the project roadmap Phase 11.2 says: keep checkpoints small; push to HuggingFace Hub
+Project plan (Phase 11.2): keep checkpoints small; push to HuggingFace Hub
 (free) only if a file exceeds the ~100 MB git-comfortable limit. This script
 checks every checkpoint's size and records `git_trackable` (size < 100 MB).
 All Elliptic models are < 1 MB, so they live in git and no HF Hub upload is

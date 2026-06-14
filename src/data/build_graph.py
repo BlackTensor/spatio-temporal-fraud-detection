@@ -1,7 +1,7 @@
 """Phase 3.1: Build PyG Data object from processed tensors.
 
 Elliptic is a homogeneous transaction graph (single node type).
-The the project roadmap plan referenced user/account/device/IP node types, which
+The original project plan referenced user/account/device/IP node types, which
 belong to the IEEE-CIS template.  Elliptic has one node type (Bitcoin
 transactions), so we build a PyG ``Data`` (homogeneous) object here.
 HeteroData with multiple edge types will be introduced in Phase 6.
